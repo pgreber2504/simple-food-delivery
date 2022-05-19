@@ -1,0 +1,26 @@
+.error-message {
+  padding: 1rem;
+  text-align: center;
+}
+
+.error-message h2 {
+  color: #8a2b06;
+}
+
+.error-message p {
+  font-size: 1rem;
+}
+
+.error-message__status {
+  color: red;
+}
+
+.error-message__action {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease-in;
+}
+
+.error-message__action:hover {
+  color: #8a2b06;
+}

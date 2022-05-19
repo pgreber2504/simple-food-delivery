@@ -2,7 +2,6 @@ import { useContext } from 'react';
 
 import classes from './Checkout.module.css';
 import useInput from '../../hooks/use-input';
-import useHttp from '../../hooks/use-http';
 import CartContext from '../../store/cart-context';
 
 const Checkout = (props) => {
@@ -12,7 +11,6 @@ const Checkout = (props) => {
     const { inputValue: lastNameValue, isValid: lastNameIsValid, hasError: lastNameHasError, changeValueHandler: changeLastNameHandler, blurHandler: blurLastNameHandler } = useInput((inputValue) => inputValue.trim() !== '')
     const { inputValue: postalValue, isValid: postalIsValid, hasError: postalHasError, changeValueHandler: changePostalHandler, blurHandler: blurPostalHandler } = useInput((inputValue) => inputValue.trim() !== '')
     const { inputValue: cityValue, isValid: cityIsValid, hasError: cityHasError, changeValueHandler: changeCityHandler, blurHandler: blurCityHandler } = useInput((inputValue) => inputValue.trim() !== '')
-    const { error, loading, fetchData } = useHttp();
 
     const formIsValid = nameIsValid && lastNameIsValid && postalIsValid && cityIsValid;
 
@@ -38,11 +36,9 @@ const Checkout = (props) => {
             totalPrice: cartCtx.totalAmount
         }
 
-        fetchData({ url: 'https://react-training-dummy-data-default-rtdb.firebaseio.com/clients.json', method: 'POST', body: sendedObject }, (data) => {
-            const id = data.name
-            console.log(id);
+        props.fetchData(sendedObject);
 
-        })
+
 
     };
 

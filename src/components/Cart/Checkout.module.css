@@ -1,7 +1,7 @@
 .form {
   margin: 1rem 0;
-  height: 19rem;
-  overflow: auto;
+  max-height: 18rem;
+  overflow: hidden;
 }
 
 .control {
@@ -20,6 +20,7 @@
   border-radius: 4px;
   width: 20rem;
   max-width: 100%;
+  text-align: center;
 }
 
 .actions {

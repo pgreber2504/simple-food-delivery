@@ -2,7 +2,7 @@ import { useCallback, useState } from "react"
 
 const useHttp = () => {
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const fetchData = useCallback(async (options, applyData) => {
         setLoading(true)
